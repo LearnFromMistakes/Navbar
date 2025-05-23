@@ -1,0 +1,250 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --container-bg-color: #fff;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --header-color: #333;
+    --input-section-bg-color: #eef;
+    --input-border-color: #ddd;
+    --button-primary-bg-color: #5cb85c;
+    --button-primary-text-color: white;
+    --button-primary-hover-bg-color: #4cae4c;
+    --task-item-bg-color: #fff;
+    --task-item-border-color: #ddd;
+    --task-item-completed-text-color: #aaa;
+    --task-item-completed-bg-color: #f9f9f9;
+    --task-item-overdue-border-color: #d9534f;
+    --task-item-overdue-bg-color: #fcf8e3;
+    --filter-button-bg-color: #007bff;
+    --filter-button-text-color: white;
+    --filter-button-hover-bg-color: #0056b3;
+    --filter-button-active-bg-color: #004085;
+    --dragging-bg-color: #e0e0e0;
+    --header-controls-button-bg-color: #6c757d;
+    --header-controls-button-text-color: white;
+    --header-controls-button-hover-bg-color: #5a6268;
+}
+
+body.dark-mode {
+    --bg-color: #22272e; /* Dark gray-blue */
+    --text-color: #c9d1d9; /* Light gray */
+    --container-bg-color: #2d333b; /* Darker gray-blue */
+    --container-shadow: rgba(0, 0, 0, 0.4);
+    --header-color: #c9d1d9;
+    --input-section-bg-color: #373e47; /* Medium gray-blue */
+    --input-border-color: #586069; /* Lighter border for dark mode */
+    --button-primary-bg-color: #2ea043; /* Greener */
+    --button-primary-text-color: #fff;
+    --button-primary-hover-bg-color: #268839;
+    --task-item-bg-color: #373e47;
+    --task-item-border-color: #586069;
+    --task-item-completed-text-color: #8b949e; /* Muted gray */
+    --task-item-completed-bg-color: #2d333b;
+    --task-item-overdue-border-color: #f85149; /* Brighter red */
+    --task-item-overdue-bg-color: #5e4847; /* Darker, muted red background */
+    --filter-button-bg-color: #3182ce; /* Darker blue */
+    --filter-button-text-color: #fff;
+    --filter-button-hover-bg-color: #2c7ae0;
+    --filter-button-active-bg-color: #276ab3;
+    --dragging-bg-color: #586069;
+    --header-controls-button-bg-color: #586069;
+    --header-controls-button-text-color: #c9d1d9;
+    --header-controls-button-hover-bg-color: #6e7681;
+}
+
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--container-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--container-shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-controls h1 {
+    margin-bottom: 0; /* Remove default margin if it's only item */
+}
+
+.header-controls button {
+    padding: 8px 12px;
+    background-color: var(--header-controls-button-bg-color);
+    color: var(--header-controls-button-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-controls button:hover {
+    background-color: var(--header-controls-button-hover-bg-color);
+}
+
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--header-color);
+    transition: color 0.3s;
+}
+
+/* Task Input Area */
+.add-task-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--input-section-bg-color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-task-section input[type="text"],
+.add-task-section input[type="time"] {
+    width: calc(50% - 12px); /* Adjust width considering button and spacing */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    background-color: var(--task-item-bg-color); /* Match task item bg for consistency */
+    color: var(--text-color); /* Ensure input text is readable */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.add-task-section button {
+    padding: 10px 15px;
+    background-color: var(--button-primary-bg-color);
+    color: var(--button-primary-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-task-section button:hover {
+    background-color: var(--button-primary-hover-bg-color);
+}
+
+/* Task List */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    background: var(--task-item-bg-color);
+    color: var(--text-color); /* Ensure text in li is readable */
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--task-item-border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Task States */
+#task-list li.dragging {
+    opacity: 0.5;
+    background-color: var(--dragging-bg-color); /* Light grey to indicate dragging */
+}
+
+#task-list li.completed {
+    text-decoration: line-through;
+    color: var(--task-item-completed-text-color);
+    background-color: var(--task-item-completed-bg-color);
+}
+
+#task-list li.overdue {
+    border-left: 5px solid var(--task-item-overdue-border-color);
+    background-color: var(--task-item-overdue-bg-color);
+}
+
+/* Filter Buttons */
+.filter-section {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.filter-section button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: var(--filter-button-bg-color);
+    color: var(--filter-button-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-section button:hover {
+    background-color: var(--filter-button-hover-bg-color);
+}
+
+.filter-section button.active-filter {
+    background-color: var(--filter-button-active-bg-color);
+    font-weight: bold;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .add-task-section input[type="text"],
+    .add-task-section input[type="time"] {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .add-task-section button {
+        width: 100%;
+    }
+
+    #task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+     /* Add spacing for task name and due time when stacked in mobile view */
+     #task-list li .task-name-span,
+     #task-list li .due-time-span {
+        margin-bottom: 5px;
+    }
+
+    .filter-section button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}

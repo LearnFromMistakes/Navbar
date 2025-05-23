@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Task Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-controls">
+            <h1>Daily Task Manager</h1>
+            <button id="theme-toggle">Toggle Theme</button>
+        </div>
+
+        <div class="add-task-section">
+            <h2>Add New Task</h2>
+            <input type="text" id="task-name" placeholder="Task Name">
+            <input type="time" id="task-due-time">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <div class="tasks-section">
+            <h2>Tasks</h2>
+            <ul id="task-list">
+                <!-- Task items will be added here by JavaScript -->
+            </ul>
+        </div>
+
+        <div class="filter-section">
+            <h2>Filter Tasks</h2>
+            <button id="filter-all">All</button>
+            <button id="filter-active">Active</button>
+            <button id="filter-completed">Completed</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
