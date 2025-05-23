@@ -83,3 +83,17 @@ nav a:hover
     }
 
 }
+
+/* Styles for image upload field and label */
+#imageUpload {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label[for="imageUpload"] {
+    margin-left: 15px;
+    font-size: 22px; /* Match navbar font size */
+    color: #333; /* Adjust color as needed */
+}
